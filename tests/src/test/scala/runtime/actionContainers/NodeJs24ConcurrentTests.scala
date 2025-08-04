@@ -15,33 +15,13 @@
  * limitations under the License.
  */
 
-include 'tests'
+package runtime.actionContainers
 
-include 'core:nodejsActionBase'
-include 'core:nodejs18Action'
-include 'core:nodejs20Action'
-include 'core:nodejs24Action'
-include 'tests:dat:docker:nodejs18docker'
-include 'tests:dat:docker:nodejs20docker'
-include 'tests:dat:docker:nodejs24docker'
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 
-rootProject.name = 'runtime-nodejs'
-
-gradle.ext.openwhisk = [
-        version: '1.0.1-SNAPSHOT'
-]
-
-gradle.ext.scala = [
-    version: '2.12.10',
-    depVersion  : '2.12',
-    compileFlags: ['-feature', '-unchecked', '-deprecation', '-Xfatal-warnings', '-Ywarn-unused-import']
-]
-
-
-gradle.ext.akka = [version : '2.6.12']
-gradle.ext.akka_http = [version : '10.2.4']
-
-gradle.ext.scalafmt = [
-    version: '1.5.1',
-    config: new File(rootProject.projectDir, '.scalafmt.conf')
-]
+@RunWith(classOf[JUnitRunner])
+class NodeJs24ConcurrentTests extends NodeJsConcurrentTests {
+  override lazy val nodejsContainerImageName = "action-nodejs-v24"
+  override lazy val nodejsTestDockerImageName = "nodejs24docker"
+}
