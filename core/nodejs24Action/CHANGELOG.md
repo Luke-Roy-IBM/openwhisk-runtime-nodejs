@@ -20,5 +20,5 @@
 # NodeJS 24 OpenWhisk Runtime Container
 
 
-Node.js version = [20.17.0](https://nodejs.org/en/blog/release/v20.17.0/)
+Node.js version = [24.5.0](https://nodejs.org/en/blog/release/v24.5.0)
 OpenWhisk version = [OpenWhisk v3.21.8](https://www.npmjs.com/package/openwhisk)
